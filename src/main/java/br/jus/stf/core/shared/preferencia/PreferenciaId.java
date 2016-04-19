@@ -1,4 +1,4 @@
-package br.jus.stf.core.shared.classe;
+package br.jus.stf.core.shared.preferencia;
 
 import java.io.Serializable;
 
@@ -14,24 +14,28 @@ import br.jus.stf.core.framework.domaindrivendesign.ValueObjectSupport;
  * @since 06.04.2016
  */
 @Embeddable
-public class ClasseId extends ValueObjectSupport<ClasseId> implements Serializable {
+public class PreferenciaId extends ValueObjectSupport<PreferenciaId> implements Serializable {
     
     private static final long serialVersionUID = 1L;
     
-    @Column(name = "SIG_CLASSE")
-    private String id;
+    @Column(name = "SEQ_PREFERENCIA")
+    private Long id;
     
-    public ClasseId() {
+    public PreferenciaId() {
     	// Deve ser usado apenas pelo Hibernate, que sempre usa o construtor default antes de popular uma nova instância.
     }
     
-    public ClasseId(String id) {
+    public PreferenciaId(Long id) {
         this.id = id;
+    }
+    
+    public Long toLong() {
+        return id;
     }
 
      @Override
     public String toString(){
-        return id;
+        return id.toString();
     }
     
 }
