@@ -25,7 +25,7 @@ public class PDFMultipartFile implements MultipartFile {
 	 * @param conteudo
 	 */
 	public PDFMultipartFile(String nome, byte[] conteudo) {
-		Validate.notBlank(nome, "Nome n„o pode ser nulo ou vazio!");
+		Validate.notBlank(nome, "Nome n√£o pode ser nulo ou vazio!");
 		
 		this.nome = nome;
 		this.conteudo = conteudo != null ? conteudo : new byte[0];

@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.validation.ObjectError;
 
 /**
- * Exceção para erros de validação.
+ * ExceÃ§Ã£o para erros de validaÃ§Ã£o.
  * 
  * @author Tomas.Godoi
  *
