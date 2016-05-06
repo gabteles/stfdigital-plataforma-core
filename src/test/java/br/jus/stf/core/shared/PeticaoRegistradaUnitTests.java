@@ -15,8 +15,8 @@ public class PeticaoRegistradaUnitTests {
 	
 	@Test
 	public void devemSerConsideradosIguais() {
-		PeticaoRegistrada evento1 = new PeticaoRegistrada(1L, "01/2016");
-		PeticaoRegistrada evento2 = new PeticaoRegistrada(1L, "01/2016");
+		PeticaoRegistrada evento1 = new PeticaoRegistrada(1L, "01/2016", "ADI");
+		PeticaoRegistrada evento2 = new PeticaoRegistrada(1L, "01/2016", "ADI");
 		
 		Assert.assertTrue(evento1.sameEventAs(evento2));
 	}
@@ -24,8 +24,8 @@ public class PeticaoRegistradaUnitTests {
 
 	@Test
 	public void devemSerConsideradosDiferentes() {
-		PeticaoRegistrada evento1 = new PeticaoRegistrada(1L, "01/2016");
-		PeticaoRegistrada evento2 = new PeticaoRegistrada(2L, "02/2016");
+		PeticaoRegistrada evento1 = new PeticaoRegistrada(1L, "01/2016", "ADI");
+		PeticaoRegistrada evento2 = new PeticaoRegistrada(2L, "02/2016", "ADO");
 		
 		Assert.assertFalse(evento1.sameEventAs(evento2));
 	}

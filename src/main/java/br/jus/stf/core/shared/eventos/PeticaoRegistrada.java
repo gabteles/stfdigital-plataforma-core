@@ -15,14 +15,17 @@ public class PeticaoRegistrada implements DomainEvent<PeticaoRegistrada> {
 	private Long protocoloId;
 
 	private String protocolo;
+	
+	private String classeId;
 
 	public PeticaoRegistrada() {
     	// Usado apenas pelo Jackson durante a conversação de Json para uma nova instância.
 	}
 	
-	public PeticaoRegistrada(Long protocoloId, String protocolo) {
+	public PeticaoRegistrada(Long protocoloId, String protocolo, String classeId) {
 		this.protocoloId = protocoloId;
 		this.protocolo = protocolo;
+		this.classeId = classeId;
 	}
 	
 	public Long getProtocoloId() {
@@ -31,6 +34,10 @@ public class PeticaoRegistrada implements DomainEvent<PeticaoRegistrada> {
 	
 	public String getProtocolo() {
 		return protocolo;
+	}
+	
+	public String getClasseId() {
+		return classeId;
 	}
 
 	@Override
