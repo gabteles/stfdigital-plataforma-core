@@ -19,6 +19,10 @@ public class Identificacao extends ValueObjectSupport<Identificacao> {
 		this.numero = numero;
 	}
 	
+	public Long numero() {
+		return numero;
+	}
+	
 	@Override
 	public String toString() {
 		return String.format("%s %s", classe, numero);
