@@ -14,16 +14,23 @@ public class RecebimentoFinalizado implements DomainEvent<RecebimentoFinalizado>
 	
 	private Long protocoloId;
 	
+	private String classeId;
+	
 	public RecebimentoFinalizado() {
     	// Usado apenas pelo Jackson durante a conversação de Json para uma nova instância.
 	}
 	
-	public RecebimentoFinalizado(Long protocoloId) {
+	public RecebimentoFinalizado(Long protocoloId, String classeId) {
 		this.protocoloId = protocoloId;
+		this.classeId = classeId;
 	}
 	
 	public Long getProtocoloId() {
 		return protocoloId;
+	}
+
+	public String getClasseId() {
+		return classeId;
 	}
 
 	@Override
