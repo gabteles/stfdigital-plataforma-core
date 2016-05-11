@@ -15,6 +15,10 @@ public class Numero {
 	private Long numero;
 	
 	private Integer ano;
+	
+	public Numero() {
+		// Deve ser usado apenas pelo Hibernate, que sempre usa o construtor default antes de popular uma nova instância.
+	}
 
 	public Numero(Long numero, Integer ano) {
 		this.numero = numero;
