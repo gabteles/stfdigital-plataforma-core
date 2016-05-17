@@ -15,8 +15,8 @@ public class RecebimentoFinalizadoUnitTests {
 	
 	@Test
 	public void devemSerConsideradosIguais() {
-		RecebimentoFinalizado evento1 = new RecebimentoFinalizado(1L, "ADI");
-		RecebimentoFinalizado evento2 = new RecebimentoFinalizado(1L, "ADI");
+		RecebimentoFinalizado evento1 = new RecebimentoFinalizado(1L, "ADI", "ORIGINARIO");
+		RecebimentoFinalizado evento2 = new RecebimentoFinalizado(1L, "ADI", "ORIGINARIO");
 		
 		Assert.assertTrue(evento1.sameEventAs(evento2));
 	}
@@ -24,8 +24,8 @@ public class RecebimentoFinalizadoUnitTests {
 
 	@Test
 	public void devemSerConsideradosDiferentes() {
-		RecebimentoFinalizado evento1 = new RecebimentoFinalizado(1L, "ADI");
-		RecebimentoFinalizado evento2 = new RecebimentoFinalizado(2L, "ADI");
+		RecebimentoFinalizado evento1 = new RecebimentoFinalizado(1L, "ADI", "ORIGINARIO");
+		RecebimentoFinalizado evento2 = new RecebimentoFinalizado(2L, "ADI", "ORIGINARIO");
 		
 		Assert.assertFalse(evento1.sameEventAs(evento2));
 	}
