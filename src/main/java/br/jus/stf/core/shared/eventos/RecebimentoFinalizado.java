@@ -18,14 +18,17 @@ public class RecebimentoFinalizado implements DomainEvent<RecebimentoFinalizado>
 	
 	private String tipoProcesso;
 	
+	private String sigilo;
+	
 	public RecebimentoFinalizado() {
     	// Usado apenas pelo Jackson durante a conversação de Json para uma nova instância.
 	}
 	
-	public RecebimentoFinalizado(Long protocoloId, String classeId, String tipoProcesso) {
+	public RecebimentoFinalizado(Long protocoloId, String classeId, String tipoProcesso, String sigilo) {
 		this.protocoloId = protocoloId;
 		this.classeId = classeId;
 		this.tipoProcesso = tipoProcesso;
+		this.sigilo = sigilo;
 	}
 	
 	public Long getProtocoloId() {
@@ -38,6 +41,10 @@ public class RecebimentoFinalizado implements DomainEvent<RecebimentoFinalizado>
 	
 	public String getTipoProcesso() {
 		return tipoProcesso;
+	}
+	
+	public String getSigilo() {
+		return sigilo;
 	}
 
 	@Override
