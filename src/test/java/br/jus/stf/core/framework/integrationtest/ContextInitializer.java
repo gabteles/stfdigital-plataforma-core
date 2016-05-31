@@ -1,7 +1,8 @@
-package br.jus.stf.core.framework.errorhandling;
+package br.jus.stf.core.framework.integrationtest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * @author Rodrigo Barreiros
@@ -10,10 +11,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @since 21.12.2015
  */
 @SpringBootApplication
-public class ErrorMockContextInitializer {
+@ComponentScan("br.jus.stf")
+public class ContextInitializer {
 	
 	public static void main(String[] args) {
-		SpringApplication.run(ErrorMockContextInitializer.class, args);
+		SpringApplication.run(ContextInitializer.class, args);
 	}
 	
 }

@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.web.servlet.ResultActions;
 
+import br.jus.stf.core.framework.integrationtest.ContextInitializer;
 import br.jus.stf.core.framework.testing.IntegrationTestsSupport;
 
 /**
@@ -20,7 +21,7 @@ import br.jus.stf.core.framework.testing.IntegrationTestsSupport;
  * 
  * @see ErrorMockRestResource
  */
-@SpringApplicationConfiguration(ErrorMockContextInitializer.class)
+@SpringApplicationConfiguration(ContextInitializer.class)
 public class ErrorHandlingIntegrationTests extends IntegrationTestsSupport {
     
     @Test
