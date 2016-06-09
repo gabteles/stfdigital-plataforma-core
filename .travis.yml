@@ -1,4 +1,5 @@
 language: java
 jdk:
   - oraclejdk8
-script: bundle exec gradle check
+script:
+  - gradle check
