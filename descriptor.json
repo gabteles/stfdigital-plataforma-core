@@ -1,7 +1,7 @@
 {
     "package": {
-        "name": "core",
-        "repo": "stfdigital-plataforma-core",
+        "name": "stfdigital-plataforma-core",
+        "repo": "maven",
         "subject": "tsmgodoi"
     },
 
