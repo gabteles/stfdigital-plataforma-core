@@ -1,0 +1,17 @@
+{
+    "package": {
+        "name": "core",
+        "repo": "supremotribunalfederal/stfdigital-plataforma-core",
+        "subject": "tsmgodoi"
+    },
+
+    "version": {
+        "name": "0.0.1-SNAPSHOT"
+    },
+
+    "files":
+        [
+        {"includePattern": "build/libs/(.*\\.jar)", "uploadPattern": "$1"}
+        ],
+    "publish": true
+}
