@@ -19,15 +19,18 @@ public class EnvolvidoRegistrado implements DomainEvent<EnvolvidoRegistrado> {
 	private String protocolo;
 	
 	private String nome;
+	
+	private Long pessoaId;
 
 	public EnvolvidoRegistrado() {
     	// Usado apenas pelo Jackson durante a conversação de Json para uma nova instância.
 	}
 	
-	public EnvolvidoRegistrado(Long protocoloId, String protocolo, String nome) {
+	public EnvolvidoRegistrado(Long protocoloId, String protocolo, String nome, Long pessoaId) {
 		this.protocoloId = protocoloId;
 		this.protocolo = protocolo;
 		this.nome = nome;
+		this.pessoaId = pessoaId;
 	}
 	
 	public Long getProtocoloId() {
@@ -40,6 +43,10 @@ public class EnvolvidoRegistrado implements DomainEvent<EnvolvidoRegistrado> {
 	
 	public String getNome() {
 		return nome;
+	}
+	
+	public Long getPessoaId() {
+		return pessoaId;
 	}
 
 	@Override

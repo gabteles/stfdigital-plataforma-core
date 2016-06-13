@@ -15,8 +15,8 @@ public class EnvolvidoRegistradoUnitTests {
 	
 	@Test
 	public void devemSerConsideradosIguais() {
-		EnvolvidoRegistrado evento1 = new EnvolvidoRegistrado(1L, "01/2016", "João da Silva");
-		EnvolvidoRegistrado evento2 = new EnvolvidoRegistrado(1L, "01/2016", "João da Silva");
+		EnvolvidoRegistrado evento1 = new EnvolvidoRegistrado(1L, "01/2016", "João da Silva", 1L);
+		EnvolvidoRegistrado evento2 = new EnvolvidoRegistrado(1L, "01/2016", "João da Silva", 1L);
 		
 		Assert.assertTrue(evento1.sameEventAs(evento2));
 	}
@@ -24,8 +24,8 @@ public class EnvolvidoRegistradoUnitTests {
 
 	@Test
 	public void devemSerConsideradosDiferentes() {
-		EnvolvidoRegistrado evento1 = new EnvolvidoRegistrado(1L, "01/2016", "João da Silva");
-		EnvolvidoRegistrado evento2 = new EnvolvidoRegistrado(2L, "02/2016", "Maria da Silva");
+		EnvolvidoRegistrado evento1 = new EnvolvidoRegistrado(1L, "01/2016", "João da Silva", 1L);
+		EnvolvidoRegistrado evento2 = new EnvolvidoRegistrado(2L, "02/2016", "Maria da Silva", 2L);
 		
 		Assert.assertFalse(evento1.sameEventAs(evento2));
 	}
