@@ -1,6 +1,5 @@
-package br.jus.stf.core.framework.command;
+package br.jus.stf.core.framework.component;
 
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
@@ -12,7 +11,6 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
  */
 @Configuration
 @EnableAspectJAutoProxy
-@ComponentScan(basePackages = {"br.jus.stf.framework.command"})
-public class CommandConfiguration {
+public class ComponentConfiguration {
 
 }

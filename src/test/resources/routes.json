@@ -1,0 +1,14 @@
+[
+    {
+        "id": "do-dumb",
+        "stateName": "app.novo-processo.dumb",
+        "urlPrefix": "/novo-processo/dumb",
+        "src": "dumb"
+    },
+    {
+        "id": "search-dumb",
+        "stateName": "app.novo-processo.dumb",
+        "urlPrefix": "/novo-processo/dumb",
+        "src": "dumb"
+    }
+]

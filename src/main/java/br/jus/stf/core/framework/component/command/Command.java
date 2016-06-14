@@ -1,4 +1,4 @@
-package br.jus.stf.core.framework.command;
+package br.jus.stf.core.framework.component.command;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -6,6 +6,8 @@ import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
+
+import br.jus.stf.core.framework.component.Component;
 
 /**
  * Anotação que permite marcar um método de um serviço (camada de aplicação) como o responsável
@@ -18,6 +20,7 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 @Documented
 @Inherited
+@Component(Command.class)
 public @interface Command {
 
 	/**
@@ -28,4 +31,12 @@ public @interface Command {
 	 * @return identificador do comando
 	 */
 	String value() default "";
+	
+	String description() default "";
+	
+	String targetType() default "";
+	
+	boolean listable() default true;
+	
+	boolean startProcess() default false;
 }
