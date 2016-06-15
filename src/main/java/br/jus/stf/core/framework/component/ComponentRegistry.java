@@ -69,7 +69,7 @@ public abstract class ComponentRegistry<Config extends ComponentConfig> implemen
 		
 		if (component != null) {
 			Annotation annotation = AnnotationUtils.getAnnotation(method, component.value());
-			String value = (String) AnnotationUtils.getDefaultValue(annotation);
+			String value = (String) AnnotationUtils.getAnnotationAttributes(annotation, true, false).get("value");
 			
 			if (StringUtils.isEmpty(value)) {
 				String suffix = annotation.annotationType().getSimpleName();
