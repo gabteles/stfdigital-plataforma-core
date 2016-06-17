@@ -21,17 +21,20 @@ public class PeticaoRegistrada implements DomainEvent<PeticaoRegistrada> {
 	private String tipoProcesso;
 	
 	private String sigilo;
+	
+	private Boolean criminalEleitoral;
 
 	public PeticaoRegistrada() {
     	// Usado apenas pelo Jackson durante a conversação de Json para uma nova instância.
 	}
 	
-	public PeticaoRegistrada(Long protocoloId, String protocolo, String classeId, String tipoProcesso, String sigilo) {
+	public PeticaoRegistrada(Long protocoloId, String protocolo, String classeId, String tipoProcesso, String sigilo, Boolean criminalEleitoral) {
 		this.protocoloId = protocoloId;
 		this.protocolo = protocolo;
 		this.classeId = classeId;
 		this.tipoProcesso = tipoProcesso;
 		this.sigilo = sigilo;
+		this.criminalEleitoral = criminalEleitoral;
 	}
 	
 	public Long getProtocoloId() {
@@ -52,6 +55,10 @@ public class PeticaoRegistrada implements DomainEvent<PeticaoRegistrada> {
 	
 	public String getSigilo() {
 		return sigilo;
+	}
+	
+	public Boolean isCriminalEleitoral() {
+		return criminalEleitoral;
 	}
 
 	@Override

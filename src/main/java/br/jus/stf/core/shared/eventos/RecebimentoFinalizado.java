@@ -20,15 +20,18 @@ public class RecebimentoFinalizado implements DomainEvent<RecebimentoFinalizado>
 	
 	private String sigilo;
 	
+	private Boolean criminalEleitoral;
+	
 	public RecebimentoFinalizado() {
     	// Usado apenas pelo Jackson durante a conversação de Json para uma nova instância.
 	}
 	
-	public RecebimentoFinalizado(Long protocoloId, String classeId, String tipoProcesso, String sigilo) {
+	public RecebimentoFinalizado(Long protocoloId, String classeId, String tipoProcesso, String sigilo, Boolean criminalEleitoral) {
 		this.protocoloId = protocoloId;
 		this.classeId = classeId;
 		this.tipoProcesso = tipoProcesso;
 		this.sigilo = sigilo;
+		this.criminalEleitoral = criminalEleitoral;
 	}
 	
 	public Long getProtocoloId() {
@@ -45,6 +48,10 @@ public class RecebimentoFinalizado implements DomainEvent<RecebimentoFinalizado>
 	
 	public String getSigilo() {
 		return sigilo;
+	}
+	
+	public Boolean isCriminalEleitoral() {
+		return criminalEleitoral;
 	}
 
 	@Override
