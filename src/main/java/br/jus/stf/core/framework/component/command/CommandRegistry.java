@@ -58,10 +58,11 @@ public class CommandRegistry extends ComponentRegistry<CommandConfig> {
 		CommandConfig command = new CommandConfig();
 		Command anno = method.getAnnotation(Command.class);
 		String id = extractId(method);
+		CommandTarget target = new CommandTarget(anno.targetType(), anno.targetMode());
 		
 		command.setId(id);
 		command.setDescription(anno.description());
-		command.setTargetType(anno.targetType());
+		command.setTarget(target);
 		command.setListable(anno.listable());
 		command.setStartProcess(anno.startProcess());
 		command.setRoute(routeRegistry.find(id));

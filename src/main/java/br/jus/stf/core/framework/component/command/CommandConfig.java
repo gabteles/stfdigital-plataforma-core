@@ -12,7 +12,7 @@ public class CommandConfig implements ComponentConfig {
 	private String id;
     private String description;
     private RouteConfig route;
-    private String targetType;
+    private CommandTarget target;
     private boolean listable;
     private boolean startProcess;
     
@@ -40,12 +40,12 @@ public class CommandConfig implements ComponentConfig {
 		this.route = route;
 	}
 
-	public String getTargetType() {
-		return targetType;
+	public CommandTarget getTarget() {
+		return target;
 	}
 
-	public void setTargetType(String targetType) {
-		this.targetType = targetType;
+	public void setTarget(CommandTarget target) {
+		this.target = target;
 	}
 
 	public boolean isListable() {
