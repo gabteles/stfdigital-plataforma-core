@@ -32,22 +32,6 @@ public class RouteConfig implements ComponentConfig {
 		this.stateName = stateName;
 	}
 	
-	public String getUrlPrefix() {
-		return urlPrefix;
-	}
-	
-	public void setUrlPrefix(String urlPrefix) {
-		this.urlPrefix = urlPrefix;
-	}
-	
-	public String getSrc() {
-		return src;
-	}
-	
-	public void setSrc(String src) {
-		this.src = src;
-	}
-	
 	public String getNavigationItem() {
 		return navigationItem;
 	}
@@ -62,6 +46,22 @@ public class RouteConfig implements ComponentConfig {
 	
 	public void setTranslation(String translation) {
 		this.translation = translation;
+	}
+	
+	public String getUrlPrefix() {
+		return urlPrefix;
+	}
+	
+	public void setUrlPrefix(String urlPrefix) {
+		this.urlPrefix = urlPrefix;
+	}
+	
+	public String getSrc() {
+		return src;
+	}
+	
+	public void setSrc(String src) {
+		this.src = src;
 	}
 	
 }
