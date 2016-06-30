@@ -2,6 +2,8 @@ package br.jus.stf.core.shared.protocolo;
 
 import javax.persistence.Embeddable;
 
+import br.jus.stf.core.framework.domaindrivendesign.ValueObjectSupport;
+
 /**
  * @author Rafael Esdras
  * @author Rodrigo Barreiros
@@ -10,7 +12,7 @@ import javax.persistence.Embeddable;
  * @since 25.02.2016
  */
 @Embeddable
-public class Numero {
+public class Numero extends ValueObjectSupport<Numero> {
 	
 	private Long numero;
 	
