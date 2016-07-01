@@ -1,0 +1,5 @@
+image: qlik/gradle
+
+build:
+  script:
+   - gradle install
