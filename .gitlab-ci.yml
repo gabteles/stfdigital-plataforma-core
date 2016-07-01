@@ -1,4 +1,4 @@
-image: startext/gitlab-runner-gradle
+image: benediktg/gitlab-ci-java8
 
 build:
   script: "gradle install"
