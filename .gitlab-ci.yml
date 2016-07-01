@@ -1,5 +1,4 @@
 image: metahelicase/gradle
 
 build:
-  script:
-   - gradle install
+  script: "gradle install"
