@@ -1,4 +1,4 @@
-image: qlik/gradle
+image: metahelicase/gradle
 
 build:
   script:
