@@ -24,6 +24,8 @@ public class SwaggerConfiguration {
 
 	@Bean
 	public SwaggerSpringMvcPlugin customImplementation() {
+		springSwaggerConfig.jacksonSwaggerSupport();
+		
 		SwaggerSpringMvcPlugin swaggerSpringMvcPlugin = new SwaggerSpringMvcPlugin(springSwaggerConfig);
 		
 		swaggerSpringMvcPlugin.apiInfo(new ApiInfo(
