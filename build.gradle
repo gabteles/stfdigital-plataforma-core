@@ -29,6 +29,8 @@ apply plugin: 'eclipse'
 
 apply plugin: 'spring-boot'
 
+apply plugin: 'signing'
+
 version = '0.0.1-SNAPSHOT'
 
 group   = 'br.jus.stf.digital'
@@ -93,11 +95,66 @@ eclipse.classpath.file {
     }
 }
 
+task javadocJar(type: Jar, dependsOn: classes) {
+    classifier = 'javadoc'
+    from javadoc
+}
+
 task sourcesJar(type: Jar, dependsOn: classes) {
     classifier = 'sources'
     from sourceSets.main.allSource
 }
 
 artifacts {
-    archives sourcesJar
+    archives javadocJar, sourcesJar
+}
+
+signing {
+    required { gradle.taskGraph.hasTask("uploadArchives") }
+    sign configurations.archives
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+        beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+        repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+            authentication(userName: ossrhUsername, password: ossrhPassword)
+        }
+
+        snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+            authentication(userName: ossrhUsername, password: ossrhPassword)
+        }
+
+        pom.project {
+            name 'STF Digital - Plataforma - Core'
+            packaging 'jar'
+
+            description 'Biblioteca compartilhada pelos microserviços do STF Digital'
+            url 'http://supremotribunalfederal.github.io/stfdigital/'
+
+            scm {
+                connection 'scm:git:git@github.com:supremotribunalfederal/stfdigital-plataforma-core.git'
+                developerConnection 'scm:git:git@github.com:supremotribunalfederal/stfdigital-plataforma-core.git'
+                url 'git@github.com:supremotribunalfederal/stfdigital-plataforma-core.git'
+            }
+
+            licenses {
+                license {
+                    name 'GNU Lesser General Public License, Version 3.0'
+                    url 'https://www.gnu.org/licenses/lgpl-3.0.txt'
+                }
+            }
+
+            developers {
+                developer {
+                    id 'tomas.godoi'
+                    name 'Tomás Godoi'
+                    email 'tomas.godoi@stf.jus.br'
+              }
+            }
+        }
+    }
+  }
 }

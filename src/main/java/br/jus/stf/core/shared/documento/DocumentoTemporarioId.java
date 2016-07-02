@@ -9,7 +9,7 @@ import br.jus.stf.core.framework.domaindrivendesign.ValueObjectSupport;
 /**
  * @author Rafael.Alencar
  * @version 1.0
- * @created 29-set-2015 18:14:46
+ * @since 29-set-2015 18:14:46
  */
 public class DocumentoTemporarioId extends ValueObjectSupport<DocumentoTemporarioId> implements Serializable {
 

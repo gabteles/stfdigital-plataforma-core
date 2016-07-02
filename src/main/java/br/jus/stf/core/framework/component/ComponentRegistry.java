@@ -35,7 +35,7 @@ public abstract class ComponentRegistry<Config extends ComponentConfig> implemen
 	/**
 	 * Procura por um componente registrado com o id especificado
 	 *  
-	 * @param method
+	 * @param id Id do component registrado
 	 * @return o identificador do comando, ou null se não possuir o comando
 	 */
 	//TODO aplicar o filtro de segurança (@SecuredResource) que verifica o acesso ao recurso
@@ -49,7 +49,8 @@ public abstract class ComponentRegistry<Config extends ComponentConfig> implemen
 	/**
 	 * Inicializa o registro dos componentes procurando nos serviços por operações
 	 * que sejam anotados com o componente
-	 * @throws Exception  
+	 * 
+	 * @throws Exception Exceção a ser relançada  
 	 */
 	protected abstract void configure() throws Exception;
 	
@@ -61,7 +62,7 @@ public abstract class ComponentRegistry<Config extends ComponentConfig> implemen
 	 * handle(TestarRegistroCommand) // extrai o id testar-registro
 	 * </pre> 
 	 * 
-	 * @param method
+	 * @param method o método cujo id será extraído.
 	 * @return o id extraído do método
 	 */
 	protected String extractId(Method method) {

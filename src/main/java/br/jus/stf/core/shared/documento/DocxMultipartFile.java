@@ -22,8 +22,8 @@ public class DocxMultipartFile implements MultipartFile {
 	private final byte[] conteudo;
 
 	/**
-	 * @param nome
-	 * @param conteudo
+	 * @param nome O nome do arquivo
+	 * @param conteudo O conteúdo do arquivo
 	 */
 	public DocxMultipartFile(String nome, byte[] conteudo) {
 		Validate.notBlank(nome, "Nome não pode ser nulo ou vazio!");

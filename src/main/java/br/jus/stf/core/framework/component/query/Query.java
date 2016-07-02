@@ -26,7 +26,7 @@ public @interface Query {
 	/**
 	 * Identificador da pesquisa para verificar o acesso,
 	 * caso não seja informado será extraído da classe da
-	 * pesquisa. Ex: PesquisarProcessoQuery -> pesquisar-processo
+	 * pesquisa. Ex: PesquisarProcessoQuery -&gt; pesquisar-processo
 	 * 
 	 * @return identificador da pesquisa
 	 */

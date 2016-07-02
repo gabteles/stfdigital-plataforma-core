@@ -7,10 +7,12 @@ import java.io.Serializable;
  * sequencial de uma petição, ou pode ser derivada de vários aspectos do evento, como onde, quando e o que
  * aconteceu.
  * 
- * <p>Os eventos de domínio devem atender aos seguintes critérios:
- * 	<li> Implementar a interface {@link DomainEvent}
- *  <li> Possuir Getters e Setters na notação Java Beans
- *  <li> Possuir o construtor default <br></br>
+ * <p>Os eventos de domínio devem atender aos seguintes critérios:</p>
+ * <ul>
+ * 	<li> Implementar a interface {@link DomainEvent} </li>
+ *  <li> Possuir Getters e Setters na notação Java Beans </li>
+ *  <li> Possuir o construtor default </li>
+ * </ul>
  * 
  * @author Rafael Esdras
  * @author Rodrigo Barreiros

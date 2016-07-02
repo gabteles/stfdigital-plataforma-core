@@ -27,8 +27,8 @@ public @interface Command {
 	/**
 	 * Identificador do comando para verificar o acesso,
 	 * caso não seja informado será extraído da classe do
-	 * comando. Ex: RegitrarOficioCommand -> regitrar-oficio.
-	 * <br/><i>Default:</i> ""
+	 * comando. Ex: RegitrarOficioCommand -&gt; regitrar-oficio.
+	 * <br><i>Default:</i> ""
 	 * 
 	 * @return identificador do comando
 	 */
@@ -36,7 +36,7 @@ public @interface Command {
 	
 	/**
 	 * Descrição do comando
-	 * <br/><i>Default:</i> ""
+	 * <br><i>Default:</i> ""
 	 * 
 	 * @return descrição
 	 */
@@ -44,7 +44,7 @@ public @interface Command {
 	
 	/**
 	 * O tipo do objeto de domínio alvo do comando 
-	 * <br/><i>Default:</i> Default.class
+	 * <br><i>Default:</i> Default.class
 	 * 
 	 * @return a classe do alvo
 	 */
@@ -53,7 +53,7 @@ public @interface Command {
 	/**
 	 * Indica a multiplicidade dos objetos alvo
 	 * para que seja possível a execução do comando
-	 * <br/><i>Default:</i> One
+	 * <br><i>Default:</i> One
 	 * 
 	 * @return o modo
 	 */
@@ -61,7 +61,7 @@ public @interface Command {
 	
 	/**
 	 * Indica se o comando pode ser listado
-	 * <br/><i>Default:</i> true
+	 * <br><i>Default:</i> true
 	 * 
 	 * @return boleano
 	 */
@@ -69,7 +69,7 @@ public @interface Command {
 	
 	/**
 	 * Indica se o comando inicia um processo no workflow
-	 * <br/><i>Default:</i> false
+	 * <br><i>Default:</i> false
 	 * 
 	 * @return boleano
 	 */

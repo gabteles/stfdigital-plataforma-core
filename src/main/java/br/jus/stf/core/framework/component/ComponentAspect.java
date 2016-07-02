@@ -12,18 +12,17 @@ public abstract class ComponentAspect<Registry extends ComponentRegistry<?>> {
 	/**
 	 * Método que deve ser anotado para processar o aspecto.
 	 * 
-	 * @param joinPoint
-	 * @return
-	 * @throws Throwable
+	 * @param joinPoint O JoinPoint a ser processado.
+	 * @return o objeto
+	 * @throws Throwable Exceção a ser relançada
 	 */
 	public abstract Object process(ProceedingJoinPoint joinPoint) throws Throwable ;
 	
 	/**
 	 * Método que pode ser invocado para testar se o recurso é acessível e realizar a auditoria
 	 * 
-	 * @param joinPoint
-	 * @return
-	 * @throws Throwable
+	 * @param joinPoint O JoinPoint a ser verificado.
+	 * @throws Throwable Exceção a ser relançada
 	 */
 	protected void verify(ProceedingJoinPoint joinPoint) throws Throwable {
 		MethodSignature signature = (MethodSignature) joinPoint.getSignature();
@@ -55,7 +54,7 @@ public abstract class ComponentAspect<Registry extends ComponentRegistry<?>> {
 	/**
 	 * Auditoria sobre a execução do método
 	 * 
-	 * @param joinPoint
+	 * @param joinPoint O JoinPoint a ser auditado.
 	 */
 	private void audit(ProceedingJoinPoint joinPoint) {
 		//TODO Enviar mensagem para mecanismo de auditoria
@@ -64,8 +63,8 @@ public abstract class ComponentAspect<Registry extends ComponentRegistry<?>> {
 	/**
 	 * Auditoria sobre a execução do método quando ocorre exceção
 	 * 
-	 * @param joinPoint
-	 * @param throwable
+	 * @param joinPoint O JoinPoint a ser auditado.
+	 * @param throwable Exceção capturada
 	 */
 	private void audit(ProceedingJoinPoint joinPoint, Throwable throwable) {
 		//TODO Enviar mensagem para mecanismo de auditoria
