@@ -14,7 +14,7 @@ env:
   # GPG_OWNERTRUST
   - secure: "t1MhgLpHiw4AZ2MYCB191E9WwiP1MdUT2ULNH/hGFuIREoHvIMvfIeVeYaplpe7VZM3zaIN4CGvdJUuUg15IAu3nSI6BdI7YClmskbefXMlz2nwLW4XvlSQufMZXdZzfcmhqan7dSDT1jKYO3lWfIEPhF1st2W/KYxohBgDJsmYJfGlOGt7VfHKlhGDktxRCzMj1Li7GZtXyKXaJUG9LsWusmJPuRiKamnSwd8ohHp1njZtn0f3/sRNrSncKAV+9vFqb/4l48sdzrJipxyPq+pHSiutdINuHVxBTZudcmrSTnwRnJO67YhkFOnfwHdzS9RwlH8Ce0PQ5HWDss0lKt0blPKRCNI7B/F7PWP/1s+lHk+9Rp2PboBy9KsZcOXjjTb+NLP7vfgoxW6SEWzpwaZXEhQfKCrq0bTL3DwgXCH0ht/2thC9ts0v4q46rk5ctNJLED+RDx+4Iesa4/2HKfmG0TmgKpjVrv5rTWVgHeGNLFZCOHuk19AtKBj+rDfn6cE+2A0XW7nWYqX1mTm+TZ2+g0798iY1W1KCtjL6SyahnONVNRx+ZZFiQ/BTZUcssTIhdtoXIHnGp1QuTDeoGd6IGdwMbko7SW+mWvRtGxdHbaUxSjDOiTKmzcI9w7OxMuYRWddwMGyAKw8q3th53qm5E5EFOeEJ0TlGGlVR6Ejw="
 before_install:
-  - openssl aes-256-cbc -K $encrypted_0a6446eb3ae3_key -iv $encrypted_0a6446eb3ae3_key -in gpg_secret_keys.txt.enc -out gpg_secret_keys.txt -d
+  - openssl aes-256-cbc -K $encrypted_d648df1f978d_key -iv $encrypted_d648df1f978d_iv -in gpg_secret_keys.txt.enc -out gpg_secret_keys.txt -d
   - cat ./gpg_secret_keys.txt | base64 --decode | gpg --import
   - echo $GPG_OWNERTRUST | base64 --decode | gpg --import-ownertrust
   - echo signing.keyId=$SIGNING_KEYID > $HOME/.gradle/gradle.properties
