@@ -14,10 +14,12 @@ buildscript {
 	}
     repositories {
     	mavenLocal()
-        mavenCentral()  
+        mavenCentral()
+        maven { url "https://plugins.gradle.org/m2/" }
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.0.1")
     }
 }
 
@@ -30,6 +32,10 @@ apply plugin: 'eclipse'
 apply plugin: 'spring-boot'
 
 apply plugin: 'signing'
+
+apply plugin: 'jacoco'
+
+apply plugin: 'org.sonarqube'
 
 version = '0.0.1-SNAPSHOT'
 
@@ -93,6 +99,11 @@ eclipse.classpath.file {
         cp.entries.findAll { it instanceof SourceFolder && it.path.startsWith("src/test/") }*.output = "bin/test" 
         cp.entries.removeAll { it.kind == "output" }
     }
+}
+
+// Cobertura de testes
+jacoco {
+    toolVersion = '0.7.7.201606060606'
 }
 
 task javadocJar(type: Jar, dependsOn: classes) {
