@@ -12,6 +12,7 @@ public class RouteConfig implements ComponentConfig {
     private String stateName;
     private String navigationItem;
     private String translation;
+    private String url;
     private String urlPrefix;
     private String src;
     
@@ -46,6 +47,14 @@ public class RouteConfig implements ComponentConfig {
 	
 	public void setTranslation(String translation) {
 		this.translation = translation;
+	}
+	
+	public String getUrl() {
+		return url;
+	}
+	
+	public void setUrl(String url) {
+		this.url = url;
 	}
 	
 	public String getUrlPrefix() {
