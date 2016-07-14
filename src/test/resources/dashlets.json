@@ -1,0 +1,12 @@
+[
+	{
+		"id": "dashlet-01",
+		"nome": "Dashlet 01",
+		"src": "contexto-01/dashlets"
+	},
+	{
+		"id": "dashlet-02",
+		"nome": "Dashlet 02",
+		"src": "contexto-02/dashlets"
+	}
+]

@@ -1,0 +1,17 @@
+[
+	{
+		"id": "dashboard-01",
+		"nome": "Dashboard 01",
+		"dashletsIds": [
+			"dashlet-01",
+			"dashlet-02"
+		]
+	},
+	{
+		"id": "dashboard-02",
+		"nome": "Dashboard 02",
+		"dashletsIds": [
+			"dashlet-01"
+		]
+	}
+]
