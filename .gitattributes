@@ -1,2 +1,2 @@
-# Scripts shell devem ter LF como fim de linha
+gradlew text eol=lf
 *.enc binary
