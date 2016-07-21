@@ -1,6 +1,12 @@
 language: java
 jdk:
 - oraclejdk8
+before_cache:
+- rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+cache:
+  directories:
+  - "$HOME/.gradle/caches/"
+  - "$HOME/.gradle/wrapper/"
 env:
   global:
   # ORG_GRADLE_PROJECT_ossrhUsername
@@ -22,7 +28,7 @@ before_install:
   - echo signing.password=$SIGNING_PASSWORD >> $HOME/.gradle/gradle.properties
   - echo signing.secretKeyRingFile=$HOME/.gnupg/secring.gpg >> $HOME/.gradle/gradle.properties
 install: true
-script: gradle uploadArchives
+script: ./gradlew uploadArchives --refresh-dependencies
 notifications:
   slack:
     secure: miCQfhTka9FOH3pdDBYg2OT/Bzs2YdxptRThh93L8MtVr1PVTWisIqOLKgEeunUA5WZ1WEKoU4MFMCqZNqaQDIU3LJLNmodo/Ux63S+HCqL/KJzyEJp9Q5Ir6YNdMvwOLR2sIqdkCxb0QjFR+gOWXi8MnKdgINfFyGwspO2cAi4fHIWU+XovlLwpY3ACeV6m/zqI0agMGphxt0Eu9L/GTWjqaZtEvRs2/F2b7YWFnLOuEdSVA0+dPBIJk0aj3PgSJIShC8+cu/f4oW3VFFT85m31EIv5+BLVGfo38W0kgJ0YRFzo7VIKTQn1W79HPGra1lHywNJbvq1187X11XtpyyY6Iht2ScJVd+2h1l4AVh/XpXueTaGwMLBMTUSIYiYbs0Dl0Ndqnc3pl68A01pC5UxnUCiBYSGsMsJ7VdRbyMB2Sfo7NMl1nqo86F8YtwJdbWJ6lgI1w5K9B7YrmEwA5DPFLcHvmHB/FfxDbI5unDIylroUOG2OSgBz8OAa2bOoeWUjE4c1PfMycuahRQ7Q2+k/UmN7i7EnYXo7Z6VzrQKEGr+gZCmOeZrjJ1Lx9tFWfHe/NvojIKEEdaR1sgmJoa7zvBjxg5SSX6RLOqmLuAYZ86ZFqEaPHxE8plmKCUmgh3YHVLOnEOhJfPRmrtbymL+gquDdfN+P7rRo9YVivtc=
