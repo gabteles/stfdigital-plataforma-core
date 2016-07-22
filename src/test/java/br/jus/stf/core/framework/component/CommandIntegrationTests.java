@@ -2,21 +2,27 @@ package br.jus.stf.core.framework.component;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import br.jus.stf.core.framework.component.command.Command;
 import br.jus.stf.core.framework.component.command.CommandRegistry;
 import br.jus.stf.core.framework.domaindrivendesign.ApplicationService;
 import br.jus.stf.core.framework.integrationtest.ContextInitializer;
-import br.jus.stf.core.framework.testing.IntegrationTestsSupport;
 
 /**
  * @author lucas.rodrigues
  *
  */
-@SpringApplicationConfiguration(ContextInitializer.class)
-public class CommandIntegrationTests extends IntegrationTestsSupport {
+@RunWith(SpringRunner.class)
+@AutoConfigureMockMvc
+@ActiveProfiles("test")
+@SpringBootTest(classes = ContextInitializer.class)
+public class CommandIntegrationTests {
 	
 	@Autowired
 	private DumbApplicationService dumbService;

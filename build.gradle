@@ -14,9 +14,9 @@ buildscript {
 		swaggerVersion = '1.0.2'
 		guavaVersion = '19.0'
 		flywayVersion = '4.0'
-                jsonjVersion = '2.29'
+		jnaVersion = '4.1.0'
+        jsonjVersion = '2.29'
 		dependencyManagementPlugin = '0.5.6.RELEASE'
-		stfdigitalTestVersion = '0.0.1-SNAPSHOT'
 		
 		jacocoToolVersion = '0.7.7.201606060606'
 	}
@@ -68,6 +68,11 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-amqp")
                 
     compile("org.springframework.boot:spring-boot-starter-data-elasticsearch")
+    
+    // Remover essa dependência quando o elasticsearch tiver com essa dependência como não opcional.
+    // Monitorar issue https://github.com/elastic/elasticsearch/issues/13245
+    // Parece que na próxima versão já vai estar como não opcional.
+    compile("net.java.dev.jna:jna:${jnaVersion}")
         
     compile("org.springframework.boot:spring-boot-starter-integration")
     
@@ -100,8 +105,6 @@ dependencies {
     testCompile("com.jillesvangurp:jsonj:${jsonjVersion}")
     
     testCompile("org.springframework.boot:spring-boot-starter-test")
-    
-    testCompile("br.jus.stf.digital:test:${stfdigitalTestVersion}")
 }
 
 import org.gradle.plugins.ide.eclipse.model.SourceFolder 
