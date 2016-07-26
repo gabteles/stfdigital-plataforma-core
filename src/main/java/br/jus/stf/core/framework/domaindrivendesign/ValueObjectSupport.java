@@ -15,7 +15,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
  */
 public abstract class ValueObjectSupport<T extends ValueObject<T>> implements ValueObject<T> {
 
-    private int cachedHashCode = 0;
+    private transient int cachedHashCode = 0;
 
     /**
      * @see br.jus.stf.core.framework.domaindrivendesign.ValueObject#sameValueAs(java.lang.Object)
