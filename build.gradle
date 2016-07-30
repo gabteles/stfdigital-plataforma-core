@@ -9,7 +9,7 @@ buildscript {
         
 		apacheCommonsVersion = '3.3.2'
 		activitiVersion = '5.19.0'
-		jacksonVersion = '2.7.2'
+		jacksonVersion = '2.8.1'
 		jacksonMapperVersion = '1.9.13'
 		swaggerVersion = '1.0.2'
 		guavaVersion = '19.0'
