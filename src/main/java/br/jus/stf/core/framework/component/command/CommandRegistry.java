@@ -37,7 +37,6 @@ public class CommandRegistry extends ComponentRegistry<CommandConfig> {
 	
 	@Override
 	protected void configure() throws Exception {
-		
 		appContext.getBeansWithAnnotation(ApplicationService.class).values()
 			.forEach(appService -> {
 				Method[] methods = AopUtils.getTargetClass(appService).getDeclaredMethods();
