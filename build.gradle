@@ -12,7 +12,6 @@ buildscript {
         jacksonMapperVersion = '1.9.13'
         swaggerVersion = '1.0.2'
         guavaVersion = '19.0'
-        flywayVersion = '4.0'
         jnaVersion = '4.1.0'
         jsonjVersion = '2.29'
         
@@ -105,13 +104,13 @@ dependencies {
     
     compile("com.h2database:h2")
     
-    compile("org.flywaydb:flyway-core:$flywayVersion")
-    
     compile("com.jayway.jsonpath:json-path")
     
     testCompile("com.jillesvangurp:jsonj:${jsonjVersion}")
     
     testCompile("org.springframework.boot:spring-boot-starter-test")
+
+    testCompile("org.springframework.security:spring-security-test")    
 }
 
 // Cobertura de testes
