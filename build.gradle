@@ -47,6 +47,10 @@ apply plugin: 'jacoco'
 
 apply plugin: 'org.sonarqube'
 
+version = '0.0.1-SNAPSHOT'
+
+group   = 'br.jus.stf.digital'
+
 repositories {
     mavenLocal()
     mavenCentral()
