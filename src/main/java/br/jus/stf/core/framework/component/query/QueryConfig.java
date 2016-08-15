@@ -11,6 +11,7 @@ public class QueryConfig implements ComponentConfig {
 	
 	private String id;
     private String description;
+    private QueryType type;
     private RouteConfig route;
     
     public String getId() {
@@ -29,6 +30,14 @@ public class QueryConfig implements ComponentConfig {
     	this.description = description;
     }
 	
+	public QueryType getType() {
+		return type;
+	}
+
+	public void setType(QueryType type) {
+		this.type = type;
+	}
+
 	public RouteConfig getRoute() {
 		return route;
 	}

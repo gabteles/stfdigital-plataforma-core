@@ -32,5 +32,10 @@ public @interface Query {
 	 */
 	String value() default "";
 	
+	/**
+	 * @return descrição da pesquisa
+	 */
 	String description();
+	
+	QueryType type() default QueryType.SEARCH;
 }

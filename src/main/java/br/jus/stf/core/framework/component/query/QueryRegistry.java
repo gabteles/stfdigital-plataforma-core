@@ -59,6 +59,7 @@ public class QueryRegistry extends ComponentRegistry<QueryConfig> {
 		
 		query.setId(id);
 		query.setDescription(anno.description());
+		query.setType(anno.type());
 		query.setRoute(routeRegistry.find(id));
 		return query;
 	}
