@@ -25,9 +25,8 @@ public abstract class ComponentRegistry<Config extends ComponentConfig> implemen
 	}
 	
 	/**
-	 * @return mapa de comandos filtrado pelas permissões do usuário
+	 * @return mapa de comandos 
 	 */
-	//TODO aplicar o filtro de segurança (@SecuredResource) que verifica o acesso ao recurso
 	public List<Config> list() {
 		return components;
 	}
@@ -38,13 +37,12 @@ public abstract class ComponentRegistry<Config extends ComponentConfig> implemen
 	 * @param id Id do component registrado
 	 * @return o identificador do comando, ou null se não possuir o comando
 	 */
-	//TODO aplicar o filtro de segurança (@SecuredResource) que verifica o acesso ao recurso
 	public Config find(String id) {
 		return components.stream()
 				.filter(cmd -> cmd.getId().equals(id))
 				.findFirst()
 				.orElse(null);
-	};
+	}
 	
 	/**
 	 * Inicializa o registro dos componentes procurando nos serviços por operações
@@ -82,6 +80,6 @@ public abstract class ComponentRegistry<Config extends ComponentConfig> implemen
 			}
 		}
 		throw new IllegalArgumentException("O método informado não está anotado com um componente.");
-	};
+	}
 	
 }

@@ -4,10 +4,15 @@ import java.lang.reflect.Method;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.reflect.MethodSignature;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import br.jus.stf.core.framework.security.AccessException;
+import br.jus.stf.core.framework.security.SecurityChecker;
 
 public abstract class ComponentAspect<Registry extends ComponentRegistry<?>> {
+	
+	@Autowired
+	private SecurityChecker securityChecker;
 
 	/**
 	 * Método que deve ser anotado para processar o aspecto.
@@ -41,6 +46,9 @@ public abstract class ComponentAspect<Registry extends ComponentRegistry<?>> {
 	protected abstract Registry getRegistry();
 
 	/**
+	 * TODO Rodrigo Barreiros: Revisitar a autorização de componente quando do design
+	 * da segurança de dados.
+	 * 
 	 * Verifica se o usuário tem acesso ao comando
 	 * 
 	 * @param method O método do comando
@@ -48,7 +56,9 @@ public abstract class ComponentAspect<Registry extends ComponentRegistry<?>> {
 	 */
 	private boolean isAccessible(Method method) {
 		String id = getRegistry().extractId(method);
-		return getRegistry().find(id) != null;
+		ComponentConfig config = getRegistry().find(id);
+		
+		return securityChecker.hasPermission(config);
 	}
 
 	/**
