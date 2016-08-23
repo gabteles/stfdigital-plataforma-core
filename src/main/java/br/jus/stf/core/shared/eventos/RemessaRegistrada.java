@@ -12,6 +12,8 @@ public class RemessaRegistrada implements DomainEvent<RemessaRegistrada> {
 	
 	private static final long serialVersionUID = 1L;
 
+	public static final String EVENT_KEY = "remessa.registrada";
+
 	private Long protocoloId;
 
 	private String protocolo;
@@ -36,6 +38,12 @@ public class RemessaRegistrada implements DomainEvent<RemessaRegistrada> {
 	@Override
 	public boolean sameEventAs(RemessaRegistrada other) {
 		return getProtocoloId().equals(other.getProtocoloId());
+	}
+	
+
+	@Override
+	public String eventKey() {
+		return EVENT_KEY;
 	}
 	
 }

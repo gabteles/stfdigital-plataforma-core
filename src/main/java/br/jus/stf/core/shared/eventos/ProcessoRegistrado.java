@@ -14,6 +14,8 @@ public class ProcessoRegistrado implements DomainEvent<ProcessoRegistrado> {
 	
 	private static final long serialVersionUID = 1L;
 
+	public static final String EVENT_KEY = "processo.registrado";
+
 	private Long protocoloId;
 	
 	private String processoId;
@@ -40,4 +42,10 @@ public class ProcessoRegistrado implements DomainEvent<ProcessoRegistrado> {
 		return new EqualsBuilder().append(getProtocoloId(), other.getProtocoloId()).append(getProcessoId(), other.getProcessoId()).isEquals();
 	}
 
+
+	@Override
+	public String eventKey() {
+		return EVENT_KEY;
+	}
+	
 }

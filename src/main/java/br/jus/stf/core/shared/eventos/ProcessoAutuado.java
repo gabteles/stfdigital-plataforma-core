@@ -14,6 +14,8 @@ public class ProcessoAutuado implements DomainEvent<ProcessoAutuado> {
 	
 	private static final long serialVersionUID = 1L;
 	
+	public static final String EVENT_KEY = "processo.autuado";
+
 	private String processoId;
 	
 	private String numero;
@@ -38,6 +40,11 @@ public class ProcessoAutuado implements DomainEvent<ProcessoAutuado> {
 	@Override
 	public boolean sameEventAs(ProcessoAutuado other) {
 		return new EqualsBuilder().append(getProcessoId(), other.getProcessoId()).append(getNumero(), other.getNumero()).isEquals();
+	}
+
+	@Override
+	public String eventKey() {
+		return EVENT_KEY;
 	}
 	
 }

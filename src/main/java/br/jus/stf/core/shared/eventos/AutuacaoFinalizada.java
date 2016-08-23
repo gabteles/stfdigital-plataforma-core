@@ -10,6 +10,8 @@ import br.jus.stf.core.framework.domaindrivendesign.DomainEvent;
  */
 public class AutuacaoFinalizada implements DomainEvent<AutuacaoFinalizada> {
 	
+	public static final String EVENT_KEY = "processo.autuado";
+
 	private static final long serialVersionUID = 1L;
 	
 	private Long processoId;
@@ -31,4 +33,9 @@ public class AutuacaoFinalizada implements DomainEvent<AutuacaoFinalizada> {
 		return getProcessoId().equals(other.getProcessoId());
 	}
 
+	@Override
+	public String eventKey() {
+		return EVENT_KEY;
+	}
+	
 }

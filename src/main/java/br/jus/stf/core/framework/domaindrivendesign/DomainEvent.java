@@ -20,7 +20,6 @@ import java.io.Serializable;
  * @since 1.0.0
  * @since 15.12.2015
  */
-@FunctionalInterface
 public interface DomainEvent<T> extends Serializable {
 
     /**
@@ -30,5 +29,13 @@ public interface DomainEvent<T> extends Serializable {
      * @return <code>true</code> se forem considerados iguais, <code>false</code> caso contrário 
      */
     boolean sameEventAs(T other);
+    
+    /**
+     * Retorna a chave de identificação do evento, que será utilizada principalmente
+     * para implementação do mecanismo de integração assíncrona.
+     * 
+     * @return a chave de identificação do evento
+     */
+    String eventKey();
     
 }

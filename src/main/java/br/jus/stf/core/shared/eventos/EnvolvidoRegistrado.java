@@ -12,6 +12,8 @@ import br.jus.stf.core.framework.domaindrivendesign.DomainEvent;
  */
 public class EnvolvidoRegistrado implements DomainEvent<EnvolvidoRegistrado> {
 	
+	public static final String EVENT_KEY = "envolvido.registrado";
+
 	private static final long serialVersionUID = 1L;
 	
 	private Long protocoloId;
@@ -52,6 +54,11 @@ public class EnvolvidoRegistrado implements DomainEvent<EnvolvidoRegistrado> {
 	@Override
 	public boolean sameEventAs(EnvolvidoRegistrado other) {
 		return new EqualsBuilder().append(getProtocoloId(), other.getProtocoloId()).append(getNome(), other.getNome()).isEquals();
+	}
+
+	@Override
+	public String eventKey() {
+		return EVENT_KEY;
 	}
 	
 }

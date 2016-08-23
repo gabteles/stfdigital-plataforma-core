@@ -12,6 +12,8 @@ public class RecebimentoFinalizado implements DomainEvent<RecebimentoFinalizado>
 
 	private static final long serialVersionUID = 1L;
 	
+	public static final String EVENT_KEY = "remessa.recebida";
+
 	private Long protocoloId;
 	
 	private String classeId;
@@ -59,4 +61,10 @@ public class RecebimentoFinalizado implements DomainEvent<RecebimentoFinalizado>
 		return getProtocoloId().equals(other.getProtocoloId());
 	}
 
+
+	@Override
+	public String eventKey() {
+		return EVENT_KEY;
+	}
+	
 }

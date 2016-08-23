@@ -10,6 +10,8 @@ import br.jus.stf.core.framework.domaindrivendesign.DomainEvent;
  */
 public class PeticaoRegistrada implements DomainEvent<PeticaoRegistrada> {
 
+	public static final String EVENT_KEY = "peticao.registrada";
+
 	private static final long serialVersionUID = 1L;
 	
 	private Long protocoloId;
@@ -64,6 +66,11 @@ public class PeticaoRegistrada implements DomainEvent<PeticaoRegistrada> {
 	@Override
 	public boolean sameEventAs(PeticaoRegistrada other) {
 		return getProtocoloId().equals(other.getProtocoloId());
+	}
+
+	@Override
+	public String eventKey() {
+		return EVENT_KEY;
 	}
 	
 }
