@@ -39,7 +39,7 @@ public abstract class EntitySupport<T extends Entity<T, I>, I> implements Entity
      */
 	@Override
     public final int hashCode() {
-        return identity().hashCode();
+		return (identity() != null)? identity().hashCode():super.hashCode();
     }
 
 }
