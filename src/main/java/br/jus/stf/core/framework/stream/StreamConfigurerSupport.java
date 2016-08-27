@@ -24,6 +24,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import br.jus.stf.core.framework.domaindrivendesign.DomainEvent;
 
 /**
+ * Base Class para implementação, nos serviços de negócio, do mecanismo de integração assíncrona. A cada agregado de négocio
+ * uma tabela para EVENTOS é associada. Sempre que se desejar publicar um evento, um novo registro deve ser inserido nessa tabela.
+ * Após inserção, um poller listará periodicamente os eventos pendentes de publicação, enviando cada evento pelo canal
+ * adequado. Incialmente o poller ({@link #load()}) recupera um evento pendente de publicação. Após, um 
+ * transformer ({@link #transform(List)}) recupera os detalhes do evento instanciando a classe apropriada. Por fim,
+ * um router ({@link #route(DomainEvent)}) envia o evento pelo canal adequado, que será determinado de acordo
+ * com sua chave de identificação ({@link DomainEvent#eventKey()}).
+ * 
  * @author Rodrigo Barreiros
  * 
  * @since 1.0.0
@@ -31,8 +39,17 @@ import br.jus.stf.core.framework.domaindrivendesign.DomainEvent;
  */
 public abstract class StreamConfigurerSupport {
 	
-	private static final String EVENTOS_QUERY = "SELECT * FROM %s.evento WHERE tip_status = 1";
+	/**
+	 * Consulta para listar os eventos que ainda não foram publicados (status = 1). Lista a sequence que será usada para
+	 * atualização do registro para publicação (seq_evento), o JSon que será usado para recuperar os detalhes do 
+	 * evento (bin_detalhe) e o nome da classes do evento (nom_evento).
+	 */
+	private static final String EVENTOS_QUERY = "SELECT seq_evento, bin_detalhe, nom_evento FROM %s.evento WHERE tip_status = 1";
 
+	/**
+	 * Comando para atualização do evento após publicação. O registro será identificado para o valor da sequence
+	 * recuperada pelo select acima e o status será atualizada para o valor "2" (publicado). 
+	 */
 	private static final String EVENTOS_UPDATE = "UPDATE %s.evento SET tip_status = 2 WHERE seq_evento IN (:seq_evento)";
 	
 	@Autowired
@@ -84,6 +101,11 @@ public abstract class StreamConfigurerSupport {
 		return domainEvent.eventKey();
 	}
 	
+	/**
+	 * Retorna o nome do esquema da tabela de EVENTOS, para o serviço que utilizará o mecanismo
+	 * 
+	 * @return o nome do esquema do serviço
+	 */
 	protected abstract String serviceSchema();
 
 }
