@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -90,6 +91,18 @@ class GlobalControllerExceptionHandler {
 
     	return new ErrorMessageDto(errors);
     }
+    
+    /**
+     * O spring boot admin utiliza o 405 pra verificar se uma url
+     * do actuator está disponível, assim é necessário relançar a exception
+     * 
+     * @param exception de método de requisição não suportado
+     */
+    @ResponseStatus(HttpStatus.METHOD_NOT_ALLOWED)
+    @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
+    public void handle(HttpRequestMethodNotSupportedException exception) {
+    	LOGGER.warn(exception.getMessage());
+    }    
     
     /**
      * Todas as exceções não tratadas nos serviços da API serão repassadas a 
