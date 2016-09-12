@@ -11,6 +11,7 @@ buildscript {
         jacksonVersion = '2.8.1'
         jacksonMapperVersion = '1.9.13'
         swaggerVersion = '1.0.2'
+        logstashLogbackEncoderVersion = '4.7'
         guavaVersion = '19.0'
         jnaVersion = '4.1.0'
         jsonjVersion = '2.29'
@@ -105,6 +106,8 @@ dependencies {
     compile("org.activiti:activiti-spring-boot-starter-basic:$activitiVersion")
     
     compile("com.mangofactory:swagger-springmvc:$swaggerVersion")
+    
+    compile("net.logstash.logback:logstash-logback-encoder:${logstashLogbackEncoderVersion}")
     
     compile("com.h2database:h2")
     
