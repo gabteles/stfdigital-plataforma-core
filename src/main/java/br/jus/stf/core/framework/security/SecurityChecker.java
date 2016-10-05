@@ -1,14 +1,11 @@
 package br.jus.stf.core.framework.security;
 
 import java.util.List;
-import java.util.Map;
-import java.util.Optional;
 
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.stereotype.Component;
 
 import br.jus.stf.core.framework.component.ComponentConfig;
+import br.jus.stf.core.framework.security.utils.AuthenticationUtils;
 
 /**
  * Classe responsável por verificar se o usuário possui as permissões necessárias
@@ -32,13 +29,7 @@ public class SecurityChecker {
 	 * de um componente, false, caso contrário
 	 */
 	public boolean hasPermission(ComponentConfig componente) {
-		return Optional.ofNullable(SecurityContextHolder.getContext().getAuthentication())
-			.filter(OAuth2Authentication.class::isInstance)
-			.map(OAuth2Authentication.class::cast)
-			.map(auth -> auth.getUserAuthentication().getDetails())
-			.map(Map.class::cast)
-			.map(principal -> principal.get("componentes"))
-			.map(List.class::cast)
+		return AuthenticationUtils.getUserDetail("componentes", List.class)
 			.map(componentes -> componentes.contains(componente.getId()))
 			.orElse(false);
 	}
