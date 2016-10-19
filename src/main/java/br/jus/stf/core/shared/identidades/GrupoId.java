@@ -1,4 +1,4 @@
-package br.jus.stf.core.shared.userauthentication;
+package br.jus.stf.core.shared.identidades;
 
 import java.io.Serializable;
 
@@ -14,18 +14,18 @@ import br.jus.stf.core.framework.domaindrivendesign.ValueObjectSupport;
  * @since 03.06.2016
  */
 @Embeddable
-public class UsuarioId extends ValueObjectSupport<UsuarioId> implements Serializable {
+public class GrupoId extends ValueObjectSupport<GrupoId> implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	@Column(name = "SEQ_USUARIO")
+	@Column(name = "SEQ_GRUPO")
 	private Long id;
 
-	public UsuarioId() {
+	public GrupoId() {
 		// Deve ser usado apenas pelo Hibernate, que sempre usa o construtor default antes de popular uma nova instância.
 	}
 	
-	public UsuarioId(Long id){
+	public GrupoId(Long id){
 		this.id = id;
 	}
 	
@@ -34,7 +34,7 @@ public class UsuarioId extends ValueObjectSupport<UsuarioId> implements Serializ
 	}
 	
 	@Override
-	public String toString(){
+	public String toString() {
 		return id.toString();
 	}
 	

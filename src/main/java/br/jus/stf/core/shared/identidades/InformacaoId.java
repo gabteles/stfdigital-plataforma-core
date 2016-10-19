@@ -1,4 +1,4 @@
-package br.jus.stf.core.shared.userauthentication;
+package br.jus.stf.core.shared.identidades;
 
 import java.io.Serializable;
 
