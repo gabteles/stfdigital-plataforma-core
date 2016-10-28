@@ -115,6 +115,8 @@ dependencies {
     
     compile("org.jolokia:jolokia-core")
     
+    compile("org.json:json")
+    
     testCompile("com.jillesvangurp:jsonj:${jsonjVersion}")
     
     testCompile("org.springframework.boot:spring-boot-starter-test")
